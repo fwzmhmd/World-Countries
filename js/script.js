@@ -22,7 +22,7 @@ xhr.onreadystatechange = () => {
                             </div>
                             <div class="country-info">
                                 <div class="title">
-                                    <p>Capital(s):</p>
+                                    <p>Capital:</p>
                                     <p>Language: </p>
                                     <p>Continent: </p>
                                     <p>Currency: </p>
@@ -36,9 +36,10 @@ xhr.onreadystatechange = () => {
                                     <p>${e.population}</p>
                                 </div>
                             </div>
-                            <button>
-                                <a target="_blank" href="${e.maps.googleMaps}">Show on Google Maps</a>
-                            </button>
+                            <a target="_blank" href="${e.maps.googleMaps}">
+                                <button>Show on Google Maps</button>
+                            </a>
+                            
                         </div>
             `;
         }
