@@ -1,68 +1,68 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Oswald', sans-serif;
-    padding: 0 50px;
+  font-family: 'Oswald', sans-serif;
+  padding: 0 50px;
 }
 
 .page-heading {
-    /* padding: 20px; */
-    margin: 50px 0;
-    text-align: center;
+  /* padding: 20px; */
+  margin: 50px 0;
+  text-align: center;
 }
 
 .page-heading h1 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .countries {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .country-card {
-    padding: 10px 15px 15px;
-    margin: 0 5px 10px 5px;
-    border: 2px solid rgba(0, 0, 0, .20)
+  padding: 10px 15px 15px;
+  margin: 0 5px 10px 5px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .country-name {
-    display: flex;
-    align-items: center;
-    font-size: 28px;
-    font-weight: 500;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .country-name img {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .country-card p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-.country-info{
-    display: flex;
-    gap: 25px;
+.country-info {
+  display: flex;
+  gap: 25px;
 }
 
-.content{
-    font-weight: 300;
+.content {
+  font-weight: 300;
 }
 
-button{
-    background-color: #00796B;
-    cursor: pointer;
-    border: none;
-    color: #fff;
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 13px;
-    font-weight: 600;
+button {
+  background-color: #00796b;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
 }
