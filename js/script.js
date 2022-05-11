@@ -1,52 +1,60 @@
 const xhr = new XMLHttpRequest();
 
 xhr.onreadystatechange = () => {
-    if(xhr.readyState === 4 && xhr.status === 200) {
-        const countries = JSON.parse(xhr.responseText);
-        let country = '';
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    const allCountries = JSON.parse(xhr.responseText);
+    let countryDiv = '';
 
-        for (let i = 0; i < countries.length; i++) {
-            const e = countries[i];
+    allCountries.forEach(c => {
+      const country = c;
 
-            const obj = e => {
-                for(let prop in e){
-                    return e[prop]
-                }
-            }
-
-            country +=
-            `<div class="country-card">
-                            <div class="country-name">
-                                <img src="https://flagcdn.com/28x21/${e.cca2.toLowerCase()}.png" alt="">
-                                <div>${e.name.common}</div>
-                            </div>
-                            <div class="country-info">
-                                <div class="title">
-                                    <p>Capital:</p>
-                                    <p>Language: </p>
-                                    <p>Continent: </p>
-                                    <p>Currency: </p>
-                                    <p>Population:</p>
-                                </div>
-                                <div class="content">
-                                    <p>${e.capital}</p>
-                                    <p>${obj(e.languages)}</p>
-                                    <p>${e.region}</p>
-                                    <p>${obj(obj(e.currencies))}</p>
-                                    <p>${e.population}</p>
-                                </div>
-                            </div>
-                            <a target="_blank" href="${e.maps.googleMaps}">
-                                <button>Show on Google Maps</button>
-                            </a>
-                            
-                        </div>
-            `;
+      const obj = e => {
+        for (let prop in e) {
+          return e[prop];
         }
+      };
 
-        document.querySelector('.countries').innerHTML = country;
-    }
-}
+      const {
+        cca2,
+        name: { common },
+        capital,
+        region,
+        population,
+        maps: { googleMaps }
+      } = country;
+
+      countryDiv += `
+        <div class="country-card">
+            <div class="country-name">
+                <img src="https://flagcdn.com/28x21/${cca2.toLowerCase()}.png" alt="">
+                <div>${common}</div>
+            </div>
+            <div class="country-info">
+                <div class="title">
+                    <p>Capital:</p>
+                    <p>Language: </p>
+                    <p>Continent: </p>
+                    <p>Currency: </p>
+                    <p>Population:</p>
+                </div>
+                <div class="content">
+                    <p>${capital}</p>
+                    <p>${obj(country.languages)}</p>
+                    <p>${region}</p>
+                    <p>${obj(obj(country.currencies))}</p>
+                    <p>${population}</p>
+                </div>
+            </div>
+            <a target="_blank" href="${googleMaps}">
+                <button>Show on Google Maps</button>
+            </a>
+        </div>
+        `;
+    });
+
+    document.querySelector('.countries').innerHTML = countryDiv;
+  }
+};
 
 xhr.open('GET', 'https://restcountries.com/v3.1/all');
 xhr.send();
